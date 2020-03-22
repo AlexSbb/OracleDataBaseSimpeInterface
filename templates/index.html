@@ -4,96 +4,55 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-    <style>
+     <style>
         body {
             min-height: 75rem;
             padding-top: 4.5rem;
         }
     </style>
-    
     <title>MAIT2019 EMobility </title>
   </head>
   <body>
-
-        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
-            <a class="navbar-brand">Fixed top</a>
-        </nav>
-
+    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Availability <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Amazon">Amazon</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+            </ul>
+          </div>
+    </nav>
     <main role="main" class="container">
-
-   
-
-  
-  
+        <h2 class="text-center">{{tableName}}</h2>
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
+                {% for column in columns %}
+                    <th scope="col">{{column}}</th>
+                {% endfor %}
+            </tr>         
             </thead>
             <tbody>
-            {% for post in posts %}
-
+            {% for row in rows %}
             <tr>
-                <th scope="row">1</th>
-                <td>{{ post.author.username }}</td>
-                <td>{{ post.body }}</td>
-                <td>@mdo</td>
+                {% for data in row%}
+                <!-- <th scope="row">{{ row[0] }}</th> -->
+                <td>{{data}}</td>
+                {% endfor %}
             </tr>
             {% endfor %}
-
             </tbody>
         </table>
-        
-        <table class="table">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-            </tbody>
-        </table>
-
-
+       
     </main>
-
-
-
-
-
-
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
