@@ -33,7 +33,7 @@ def dataFromOracle(tableName):
 
 @app.route('/')
 def index():
-    tableName = 'Availability'
+    tableName = 'Availability' #Change to the name of an existing table from your database
     columns,rows=dataFromOracle(tableName)
     return render_template('index.html', columns=columns, rows=rows, tableName=tableName)
 @app.route('/Amazon')
