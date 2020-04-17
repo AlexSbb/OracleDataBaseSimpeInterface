@@ -15,10 +15,11 @@ def dataFromOracle(tableName):
         user_dict = json.load(f)
         myUserName = user_dict['Username']
         myPassword = user_dict['Password']
+        myURL = user_dict['URL']
         f.close()
    
     # connection to Oracle DB 
-    dsnStr = cx_Oracle.makedsn("studidb.gm.fh-koeln.de", "1521", "vlesung")
+    dsnStr = cx_Oracle.makedsn(myURL, "1521", "vlesung")
     con = cx_Oracle.connect(user=myUserName, password=myPassword, dsn=dsnStr) # Use your User Name and Password
     cur = con.cursor()
     cur.execute('SELECT * FROM '+tableName)
